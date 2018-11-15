@@ -1,8 +1,10 @@
 # Deep Extreme Cut (DEXTR)
 Visit our [project page](http://www.vision.ee.ethz.ch/~cvlsegmentation/dextr) for accessing the paper, and the pre-computed results.
 
-
-
+	本文的思路非常简单，标注分割对象的极点（最上方点，最下，最左，最右），
+	生成4 channel的极点位置高斯响应图，与输入图片concatenate之后送入网络学习。
+	实验发现这样的学习方式比利用bbox+50px margin进行cut出来继续分割的效果好。 
+	
 	Deep Extreme Cut 使用极值点作为输入以获取图像和视频的精确对象分割
 	本文探讨了在对象（最左侧，最右侧，顶部，底部像素）中使用极值点作为输入以获取图像和视频的精确对象分割。 
 	我们通过在卷积神经网络（CNN）的输入中为图像添加额外的通道来实现这一点，该卷积神经网络包含以每个极值点为中心的高斯。
